@@ -113,20 +113,20 @@ train_LR_type = 'both'
 
 main_dir = "datasets/20250116-1049_AID_ranged_degradation_splits_5_clients_blur_0.2-4_noise_0-25_alpha_0.1/client_data"
 
-HR_path_test = "datasets/AID_SR_for_degradation_splits_large_val_test/validation/HR"
+HR_path_val = "datasets/AID_SR_for_degradation_splits_large_val_test/validation/HR"
 
-LR_path_test = "datasets/20250116-1049_AID_ranged_degradation_splits_5_clients_blur_0.2-4_noise_0-25_alpha_0.1/federated_validation/LR"
+LR_path_val = "datasets/20250116-1049_AID_ranged_degradation_splits_5_clients_blur_0.2-4_noise_0-25_alpha_0.1/federated_validation/LR"
 
-LR_path_test = LR_path_test + '_' + train_LR_type
+LR_path_val = LR_path_val + '_' + train_LR_type
 
 NUM_CLIENTS = 5
 SCALE = 4
 
-dataset_test = SR_Dataset(HR_path_test, LR_path_test, train_flag=False, scale=SCALE, patch_size=192)
+dataset_val = SR_Dataset(HR_path_val, LR_path_val, train_flag=False, scale=SCALE, patch_size=192)
 
 trainloaders = create_datasets_from_clients(main_dir, LR_type = train_LR_type, train_flag=True, scale=SCALE, patch_size=192, batch_size=4)
 
-testloader = DataLoader(dataset_test, batch_size=1, shuffle=False, num_workers=4,
+valloader = DataLoader(dataset_val, batch_size=1, shuffle=False, num_workers=4,
                         pin_memory=True, persistent_workers = True)
 
 model = RRDBNet.RRDBNet(num_rrdb=10,upscale=SCALE)
@@ -149,7 +149,7 @@ strategy = SaveModelStrategy(
     min_fit_clients=NUM_CLIENTS,  # Never sample less than 2 clients for training
     min_evaluate_clients=0,  # Never sample less than 2 clients for evaluation
     min_available_clients= 5,  # Wait until all 2 clients are available
-    evaluate_fn=get_evalulate_fn(testloader,device, copy.deepcopy(model).to(device=device), log_dir),
+    evaluate_fn=get_evalulate_fn(valloader,device, copy.deepcopy(model).to(device=device), log_dir),
     on_fit_config_fn=fit_config,
     log_dir=log_dir,
     proximal_mu=1.0, 
