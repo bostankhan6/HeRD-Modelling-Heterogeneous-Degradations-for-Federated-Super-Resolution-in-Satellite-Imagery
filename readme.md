@@ -5,6 +5,8 @@ This repository contains the official source code and implementation for the pap
 ### Abstract
 Federated learning (FL) offers a privacy-preserving solution for single-image super-resolution (SR) on sensitive satellite imagery, but its performance is often hindered by simplistic data models. Existing methods that rely on simple bicubic downsampling fail to capture the complex, client-specific degradations found in real-world satellite data, creating a significant domain gap. To address this, we propose a novel strategy, Heterogeneous Realistic Degradation (HeRD), which models data heterogeneity by generating realistic low-resolution images based on the unique, device-locked characteristics of different satellites. Unlike conventional approaches, HeRD systematically applies diverse, anisotropic degradations to enable fine-grained control over non-Independent and Identically Distributed (non-IID) conditions. Our extensive evaluations demonstrate the robustness of FL when trained with HeRD. The proposed federated pipeline outperforms traditional bicubic-based setups by over 0.5 dB in PSNR. Notably, even in highly heterogeneous environments, our approach achieves performance within just 0.2-0.4 dB of a fully centralized training model. These findings confirm that HeRD provides a viable, high-performance, and privacy-preserving alternative for super-resolving distributed satellite imagery where data sovereignty and disparate hardware characteristics are paramount.
 
+![HeRD Method](HeRD.png "HeRD Method")
+
 ### Repository Structure
 ```
 .
