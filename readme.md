@@ -152,13 +152,24 @@ Here is a complete workflow to reproduce the results for the **AID dataset with 
 If you find this work useful for your research, please consider citing our paper:
 
 ```bibtex
-@article{khan2024herd,
-  title={{HeRD: Modelling Heterogeneous Degradations for Federated Super-Resolution in Satellite Imagery}},
+@ARTICLE{11083581,
   author={Khan, Bostan and Mousavi, Seyedhamidreza and Daneshtalab, Masoud},
-  journal={IEEE Access},
-  year={2024},
-  note={Under Review}
-}
+  journal={IEEE Access}, 
+  title={HeRD: Modeling Heterogeneous Degradations for Federated Super-Resolution in Satellite Imagery}, 
+  year={2025},
+  volume={13},
+  number={},
+  pages={125857-125868},
+  keywords={Degradation;Satellite images;Satellites;Remote sensing;Training;Federated learning;Data models;Anisotropic;Superresolution;Adaptation models;Federated learning;super-resolution;remote sensing;privacy-preserving;heterogeneous data;satellite imagery},
+  doi={10.1109/ACCESS.2025.3590171}}
 ```
 
 For more information please contact the authors on their respective emails, thank you.
+
+## Acknowledgements
+
+We'd like to acknowledge the invaluable support from the following organizations and projects:
+
+* **National Academic Infrastructure for Supercomputing in Sweden (NAISS)**: This work was supported by NAISS through the Swedish Research Council (Grant Number: 2022-06725).
+* **European Union and Estonian Research Council**: Support was provided via Project TEM-TA138.
+* **Swedish Innovation Agency VINNOVA**: This research was supported by the Fully Autonomous Safety and Time-critical Embedded Realization of Artificial Intelligence (FASTER-AI) project.
